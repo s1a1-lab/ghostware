@@ -1,0 +1,15 @@
+name: Build
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build
+        run: g++ -o Ghostware.exe main.cpp
+      - uses: actions/upload-artifact@v3
+        with:
+          name: Ghostware
+          path: Ghostware.exe
